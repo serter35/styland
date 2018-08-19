@@ -1,0 +1,31 @@
+@mixin font($color: null, $size: null, $weight: null, $family: null) {
+    @if $color == "black" or $color == "black-light" or $color == "black-lighten" or $color == "black-lightest" or $color == "black-lightness" or $color == "first" or $color == "second" or $color == "third" or $color == "white" or $color == "white-dark" or $color == "white-darken" or $color == "white-darkest" or $color == "white-darkness" {
+        @extend .fc-#{$color};
+    } @else if $color != null {
+        color: $color;
+    }
+
+    @if ($size != null) {
+        @if (index(getFontSizeList(), $size) != null) {
+            @extend .fs-#{$size};
+        } @else if (type_of($weight) == 'number') {
+            font-size: #{$size};
+        }
+    }
+
+    // Weight
+    @if $weight != null {
+        @if (index($fontWeights, $weight) != null) {
+            @extend .fw-#{$weight};
+        } @else if (type_of($weight) == 'number') {
+            font-size: $weight;
+        }
+    }
+
+    // Family
+    @if $family == first or $family == second {
+        @extend .ff-#{$family};
+    } @else if $family != null {
+        font-family: $family;
+    }
+}

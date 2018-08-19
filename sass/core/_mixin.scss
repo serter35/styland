@@ -1,0 +1,12 @@
+@mixin weight ($weight) {
+  font-weight: $weight;
+}
+@mixin box ($width, $height, $bgColor) {
+  width: $width;
+  height: $height;
+  background-color: $bgColor;
+}
+@mixin aspect-ratio ($width, $height) {
+  display: block;
+  padding-top: #{(($height / $width) * 100) + "%"};
+}

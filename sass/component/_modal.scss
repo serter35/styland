@@ -1,0 +1,78 @@
+@if $useModalComponent == true {
+    .Modal {
+        @include flex-align(center, start);
+        &.large {
+            .mod-box {
+                width: $screen-lg-width;
+                left: calc(50% - #{$screen-lg-width} / 2);
+            }
+        }
+    }
+    .mod-transparent-layer {
+        @extend .fixed;
+        @extend .left-0;
+        @extend .right-0;
+        @extend .bottom-0;
+        @extend .top-0;
+        @extend .height-100;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 9998;
+    }
+    .mod-box {
+        display: flex;
+        flex-direction: column;
+        @extend .fixed;
+        z-index: 9999;
+        @extend .mar-15-x;
+        margin-top: 8vh;
+        margin-bottom: 8vh;
+        left: calc(50% - #{$screen-sm-width} / 2);
+        width: $screen-sm-width;
+        max-height: calc(100vh - 16vh);
+        @extend .bg-white;
+        @extend .top-0;
+        box-shadow: 5px 3px 15px -2px rgba($colorBlack, .5);
+    }
+    .mod-header {
+        @include padding(25, 20);
+        @extend .bg-first;
+        @extend .fc-white;
+        @include flex-align(start, center);
+        text-transform: capitalize;
+    }
+    .mod-close-icon {
+        @extend .absolute;
+        @extend .right-0;
+        @extend .top-0;
+        @extend .fa-times;
+        z-index: 9999;
+        transform: translateX(125%);
+        @extend .fc-white-darkest;
+        &:before {
+            @extend .fa;
+            font-size: 24px;
+            cursor: pointer;
+            line-height: 0.75;
+        }
+        &:hover {
+            @extend .fc-white;
+        }
+    }
+    .mod-body {
+        @include padding(25, 20);
+        overflow-x: hidden;
+        overflow-y: auto;
+        @extend .gr;
+        &::-webkit-scrollbar {
+            width: 4px;
+            background-color: rgba($colorWhiteDark, .5);
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: $colorFirst;
+        }
+    }
+    .mod-footer {
+        @include padding(25, 20);
+        border-top: 1px solid $colorWhiteDarken;
+    }
+}

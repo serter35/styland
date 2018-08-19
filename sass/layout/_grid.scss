@@ -1,0 +1,387 @@
+.container {
+    width: $screen-lg-width - $gutter;
+    @extend .mar-auto-x;
+}
+
+.container-xl {
+    width: $screen-xl-width - $gutter;
+    @extend .mar-auto-x;
+}
+
+.gr-row, .full-grids-xl, .half-grids-xl, .quarter-grids-xl, .quad-grids-xl, .shared-grids-xl, .full-grids-lg, .half-grids-lg, .quarter-grids-lg, .quad-grids-lg, .shared-grids-lg, .full-grids-md, .half-grids-md, .quarter-grids-md, .quad-grids-md, .shared-grids-md, .full-grids-sm, .half-grids-sm, .quarter-grids-sm, .quad-grids-sm, .shared-grids-sm, .full-grids-xs, .half-grids-xs, .quarter-grids-xs, .quad-grids-xs, .shared-grids-xs {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -#{$gap-px};
+    flex: 1;
+    > * {
+        @extend .pad-#{$gap-val}-l;
+    }
+    &.height-prefix {
+        > * > * {
+            height: 100%;
+        }
+    }
+    > .gr {
+        flex: 1;
+        max-width: unset;
+    }
+}
+
+.gr {
+    flex: 1;
+}
+
+
+[class*="-grids-"] {
+    input, select {
+        min-width: initial;
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 1px) {
+    .full-grids-xs {
+        > * {
+            flex-basis: 100%;
+            max-width: 100%;
+        }
+        > [class*="-grids-"] {
+            max-width: unset;
+        }
+    }
+    .half-grids-xs {
+        > * {
+            flex-basis: 50%;
+            max-width: 50%;
+        }
+        > [class*="-grids-"] {
+            max-width: unset;
+        }
+    }
+    .quarter-grids-xs {
+        > * {
+            flex-basis: 33.33%;
+            max-width: 33.33%;
+        }
+        > [class*="-grids-"] {
+            max-width: unset;
+        }
+    }
+    .quad-grids-xs {
+        > * {
+            flex-basis: 25%;
+            max-width: 25%;
+        }
+        > [class*="-grids-"] {
+            max-width: unset;
+        }
+    }
+    .shared-grids-xs {
+        > * {
+            flex: 1;
+        }
+    }
+}
+
+@media only screen and (min-width: $screen-sm-width) {
+    .full-grids-sm {
+        > * {
+            flex-basis: 100%;
+            max-width: 100%;
+        }
+        > [class*="-grids-"] {
+            max-width: unset;
+        }
+    }
+    .half-grids-sm {
+        > * {
+            flex-basis: 50%;
+            max-width: 50%;
+        }
+        > [class*="-grids-"] {
+           max-width: unset;
+        }
+
+    }
+    .quarter-grids-sm {
+        > * {
+            flex-basis: 33.33%;
+            max-width: 33.33%;
+        }
+        > [class*="-grids-"] {
+            max-width: unset;
+        }
+    }
+    .quad-grids-sm {
+        > * {
+            flex-basis: 25%;
+            max-width: 25%;
+        }
+        > [class*="-grids-"] {
+            max-width: unset;
+        }
+    }
+    .shared-grids-sm {
+        > * {
+            flex: 1;
+        }
+    }
+}
+
+@media only screen and (min-width: $screen-md-width) {
+    .full-grids-md {
+        > * {
+            flex-basis: 100%;
+            max-width: 100%;
+        }
+        > [class*="-grids-"] {
+            max-width: unset;
+        }
+    }
+    .half-grids-md {
+        > * {
+            flex-basis: 50%;
+            max-width: 50%;
+        }
+        > [class*="-grids-"] {
+            max-width: unset;
+        }
+    }
+    .quarter-grids-md {
+        > * {
+            flex-basis: 33.33%;
+            max-width: 33%;
+        }
+        > [class*="-grids-"] {
+            max-width: unset;
+        }
+    }
+    .quad-grids-md {
+        > * {
+            flex-basis: 25%;
+            max-width: 25%;
+        }
+        > [class*="-grids-"] {
+            max-width: unset;
+        }
+    }
+    .shared-grids-md {
+        > * {
+            flex: 1;
+        }
+    }
+}
+
+@media only screen and (min-width: $screen-lg-width) {
+    .full-grids-lg {
+        > * {
+            flex-basis: 100%;
+            max-width: 100%;
+        }
+        > [class*="-grids-"] {
+            max-width: unset;
+        }
+    }
+    .half-grids-lg {
+        > * {
+            flex-basis: 50%;
+            max-width: 50%;
+        }
+        > [class*="-grids-"] {
+            max-width: unset;
+        }
+    }
+    .quarter-grids-lg {
+        > * {
+            flex-basis: 33.33%;
+            max-width: 33.33%;
+        }
+        > [class*="-grids-"] {
+            max-width: unset;
+        }
+    }
+    .quad-grids-lg {
+        flex-grow: 1;
+        flex-shrink: 1;
+        > * {
+            flex-basis: 25%;
+            max-width: 25%;
+        }
+        > [class*="-grids-"] {
+            max-width: unset;
+        }
+    }
+    .shared-grids-lg {
+        > * {
+            flex: 1;
+        }
+    }
+}
+
+@media only screen and (min-width: $screen-xl-width) {
+    .full-grids-xl {
+        > * {
+            flex-basis: 100%;
+            max-width: 100%;
+        }
+        > [class*="-grids-"] {
+            max-width: unset;
+        }
+    }
+    .half-grids-xl {
+        > * {
+            flex-basis: 50%;
+            max-width: 50%;
+        }
+        > [class*="-grids-"] {
+            max-width: unset;
+        }
+    }
+    .quarter-grids-xl {
+        > * {
+            flex-basis: 33.33%;
+            max-width: 33.33%;
+        }
+        > [class*="-grids-"] {
+            max-width: unset;
+        }
+    }
+    .quad-grids-xl {
+        > * {
+            flex-basis: 25%;
+            max-width: 25%;
+        }
+        > [class*="-grids-"] {
+            max-width: unset;
+        }
+    }
+    .shared-grids-xl {
+        > * {
+            flex: 1;
+        }
+    }
+}
+
+@media only screen and (max-width: $screen-xl-width) {
+    .container-xl {
+        width: 100%;
+        padding-left: #{($gap-val * 2) + "px"};
+        padding-right: #{($gap-val * 2) + "px"};
+    }
+}
+
+@media only screen and (max-width: $screen-lg-width) {
+    .container, .container-xl {
+        width: 100%;
+        padding-left: #{$gap-val + "px"};
+        padding-right: #{$gap-val + "px"};
+    }
+    .mob-items-lg {
+        display: block;
+        margin-left: 0;
+        padding-left: 0;
+        &.start {
+            > * {
+                text-align: left;
+            }
+        }
+        &.end {
+            > * {
+                text-align: right;
+            }
+        }
+        > * {
+            text-align: center;
+            display: block;
+            width: 100% !important;
+            margin-bottom: $gap-px;
+        }
+        &[class*="-grids-"] {
+            margin-left: 0;
+            > * {
+                padding-left: 0;
+            }
+        }
+        > [class*="-grids-"] {
+            margin-left: 0;
+            display: block;
+            > * {
+                padding-left: 0;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: $screen-md-width) {
+    .mob-items-md {
+        display: block;
+        margin-left: 0;
+        padding-left: 0;
+        &.start {
+            > * {
+                text-align: left;
+            }
+        }
+        &.end {
+            > * {
+                text-align: right;
+            }
+        }
+        > * {
+            text-align: center;
+            display: block;
+            width: 100% !important;
+            margin-bottom: $gap-px;
+        }
+        &[class*="-grids-"] {
+            margin-left: 0;
+            > * {
+                padding-left: 0;
+            }
+        }
+        > [class*="-grids-"] {
+            margin-left: 0;
+            display: block;
+            > * {
+                padding-left: 0;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: $screen-sm-width) {
+    .mob-items-sm {
+        display: block;
+        margin-left: 0;
+        padding-left: 0;
+        &.start {
+            > * {
+                text-align: left;
+            }
+        }
+        &.end {
+            > * {
+                text-align: right;
+            }
+        }
+        > * {
+            text-align: center;
+            width: 100% !important;
+            margin-bottom: $gap-px;
+            display: block;
+        }
+        &[class*="-grids-"] {
+            margin-left: 0;
+            > * {
+                padding-left: 0;
+            }
+        }
+        > [class*="-grids-"] {
+            margin-left: 0;
+            display: block;
+            > * {
+                padding-left: 0;
+            }
+        }
+    }
+}

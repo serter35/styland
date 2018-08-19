@@ -1,0 +1,48 @@
+$mCount: $marginMax;
+@while $mCount >= $marginMin {
+  .mar-#{$mCount}-t {
+    margin-top: #{$mCount}px;
+  }
+  .mar-#{$mCount}-r {
+    margin-right: #{$mCount}px;
+  }
+  .mar-#{$mCount}-b {
+    margin-bottom: #{$mCount}px;
+  }
+  .mar-#{$mCount}-l {
+    margin-left: #{$mCount}px;
+  }
+  .mar-#{$mCount}-x {
+    @extend .mar-#{$mCount}-l;
+    @extend .mar-#{$mCount}-r;
+  }
+  .mar-#{$mCount}-y {
+    @extend .mar-#{$mCount}-t;
+    @extend .mar-#{$mCount}-b;
+  }
+  .mar-#{$mCount} {
+    @extend .mar-#{$mCount}-x;
+    @extend .mar-#{$mCount}-y;
+  }
+  $mCount: $mCount - $marginStep;
+}
+.mar-auto-l {
+  margin-left: auto;
+}
+.mar-auto-r {
+  margin-right: auto;
+}
+.mar-auto-x {
+  @extend .mar-auto-l;
+  @extend .mar-auto-r;
+}
+.mar-0-last {
+  &:last-child {
+    margin: 0 !important;
+  }
+}
+.mar-0-first {
+  &:last-child {
+    margin: 0 !important;
+  }
+}

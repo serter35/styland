@@ -1,0 +1,93 @@
+// Constructor
+.flex-items {
+  display: flex;
+  flex-wrap: wrap;
+  &.inline {
+    display: inline-flex;
+  }
+}
+// Arrange
+.nowrap-items {
+  flex-wrap: nowrap;
+}
+.direction-y {
+  flex-direction: column;
+}
+.direction-reverse-x {
+  flex-direction: row;
+}
+.direction-reverse-y {
+  flex-direction: column-reverse;
+}
+.direction-reverse-x {
+  flex-direction: row-reverse;
+}
+// Horizontal Flex
+.align-start-x {
+  @extend .flex-items;
+  justify-content: flex-start;
+}
+.align-center-x {
+  @extend .flex-items;
+  justify-content: center;
+}
+.align-end-x {
+  @extend .flex-items;
+  justify-content: flex-end;
+}
+.align-between-x {
+  @extend .flex-items;
+  justify-content: space-between;
+}
+.align-around-x {
+  @extend .flex-items;
+  justify-content: space-around;
+}
+
+
+// Vertical Flex
+.align-start-y {
+  @extend .flex-items;
+  align-items: flex-start;
+}
+
+.align-center-y {
+  @extend .flex-items;
+  align-items: center;
+}
+
+.align-end-y {
+  @extend .flex-items;
+  align-items: flex-end;
+}
+
+// Both Class
+.align-start {
+  @extend .align-start-x;
+  @extend .align-start-y;
+}
+.align-center {
+  @extend .align-center-x;
+  @extend .align-center-y;
+}
+.align-end {
+  @extend .align-end-x;
+  @extend .align-end-y;
+}
+// Block
+.block-item {
+  display: block;
+}
+.inline-block-item {
+  display: inline-block;
+}
+.block-items {
+  > * {
+    display: block;
+  }
+}
+.inline-block-items {
+  > * {
+    display: inline-block;
+  }
+}

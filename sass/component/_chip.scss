@@ -1,0 +1,66 @@
+@if $useSnackbarComponent == true {
+    .chip {
+        @extend .align-center;
+        @extend .inline;
+        border: 1px solid $colorWhiteDarkest;
+        border-radius: 5px;
+        @extend .fc-black-lighten;
+        @extend .mar-10-r;
+        @extend .pad-10-l;
+    }
+    .chip-button {
+        height: 2em;
+        width:  2em;
+        @extend .mar-10-l;
+        @extend .align-center;
+        @extend .inline;
+        border-radius: 0 5px 5px 0;
+        @extend .bg-white-darkest;
+        @extend .fc-black-lightest;
+        cursor: pointer;
+        @extend .fa-icon;
+        @extend .fa-times;
+        font-size: inherit;
+        &:before {
+            font-size: inherit;
+        }
+    }
+
+    /* Chip Sizes */
+    .chip-xs {
+        @extend .fs-10;
+    }
+    .chip-sm {
+        @extend .fs-9;
+    }
+    .chip-md {
+        @extend .fs-8;
+    }
+    .chip-lg {
+        @extend .fs-7;
+    }
+    .chip-xl {
+        @extend .fs-6;
+    }
+
+
+    /* Chip Colors */
+    .chip-gray {
+        border-color: $colorWhiteDarkest;
+        > .chip-button {
+            background-color: $colorWhiteDarkest;
+        }
+    }
+    .chip-primary {
+        border-color: $colorFirst;
+        > .chip-button {
+            @extend .bg-first;
+        }
+    }
+    .chip-secondary {
+        border-color: $colorSecond;
+        > .chip-button {
+            @extend .bg-second;
+        }
+    }
+}

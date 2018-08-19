@@ -1,0 +1,24 @@
+@function str-replace($string, $search, $replace: '') {
+    $index: str-index($string, $search);
+
+    @if $index {
+        @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+
+    @return $string;
+}
+@function getGoogleFontWeights($weights) {
+    $w: "";
+    @each $weight in $weights {
+        $w: $w + $weight + ',' + $weight + 'i,';
+    }
+    @return str-slice($w, 1, str_length($w) - 1);
+}
+
+@function getFontSizeList($maxSize: 1, $minSize: 10) {
+    $list: ();
+    @for $i from $maxSize through $minSize {
+        $list:append($list, $i);
+    }
+    @return $list;
+}

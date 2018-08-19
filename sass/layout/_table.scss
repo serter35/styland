@@ -1,0 +1,45 @@
+.tbl {
+    border: 1px solid $colorWhiteDarkest;
+    @extend .bg-white;
+    &-row {
+        display: flex;
+        border-bottom: 1px solid $colorWhiteDarkest;
+        width: 100%;
+        &:last-child {
+            border-bottom: 0;
+        }
+        &-head {
+            @extend .bg-white-darken;
+        }
+    }
+    &-col {
+        min-width: 1px;
+        @extend .gr;
+        @extend .align-center-y;
+        @extend .pad-15;
+        border-right: 1px solid $colorWhiteDarkest;
+        &:last-child {
+            border-right: 0;
+        }
+        &-btn {
+            > * {
+                @extend .mar-10-r;
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+    %tbl-content {
+        max-width: 100%;
+        @extend .text-elipsis;
+    }
+    &-head {
+        @extend %tbl-content;
+        @extend .fw-600;
+    }
+    &-text {
+        @extend %tbl-content;
+    }
+}
+

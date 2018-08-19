@@ -1,0 +1,84 @@
+// Top Navbar Variable
+$panel-top-bar-height: 90px;
+
+.ControlPanel {
+    position: relative;
+    min-height: 100vh;
+    .TopNavBar {
+        @include padding(0, $gap-val * 2, 0, 0);
+        height: $panel-top-bar-height;
+        @extend .bg-white;
+        @extend .nowrap-items;
+    }
+    > main {
+        @extend .flex-items;
+    }
+    .SideNavBar {
+        min-height: calc(100vh - #{$panel-top-bar-height});
+    }
+    .tnb-logo {
+        width: 260px;
+        @extend .bg-black;
+        @extend .fc-white;
+        @extend .align-center;
+        align-self: stretch;
+        font-size: 32px;
+        @include padding(15);
+        margin: 0 !important;
+        > img {
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+            @extend .mar-auto-x;
+        }
+    }
+    .tnb-nav {
+        @extend .mar-#{$gap-val * 2}-l;
+    }
+}
+
+#cp-content {
+    min-height: calc(100vh - #{$panel-top-bar-height});
+    @extend .pad-#{$gap-val};
+    @extend .gr;
+}
+
+%load-fs-alpha {
+    font-size: calc(12px + calc(8vmax - 12vmin));
+}
+.form-load-wrap {
+    @extend .align-center;
+    @extend .direction-y;
+    @extend .fixed;
+    @extend .left-0;
+    @extend .top-0;
+    @extend .view-height-100;
+    @extend .width-100;
+    background-color: rgba(0,0,0, .5);
+    z-index: 9999;
+
+    > i {
+        @extend %load-fs-alpha;
+        @extend .fc-white;
+        @extend .mar-30-b;
+    }
+    > .load-text {
+        @extend %load-fs-alpha;
+        background-clip: text !important;
+        -webkit-background-clip: text !important;
+        background-color: $colorWhite;
+        @extend .mar-30-b;
+        color: transparent;
+        transition: 300ms background ease-in;
+    }
+    > .load-value {
+        > :first-child {
+            font-size: calc(12px + calc(8vmax - 8vmin));
+            @extend .fc-white;
+        }
+        > :last-child {
+            @extend %load-fs-alpha;
+            @extend .fc-white;
+        }
+    }
+}

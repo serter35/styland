@@ -1,0 +1,222 @@
+@if $useButtonComponent == true {
+    [class*="btn-"], .btn {
+        @extend .bg-white;
+        @extend .fc-black-light;
+        border: 1px solid $colorWhiteDarkest;
+        box-shadow: 0 0 8px rgba(0,0,0, .06);
+        transition: 250ms all ease-out;
+        cursor: pointer;
+        padding: 0.5em 1em;
+        border-radius: 1px;
+        display: inline-block;
+        user-select: none;
+        outline: none;
+        * {
+            font-size: inherit;
+            color: inherit;
+        }
+        &:hover {
+            background-color: darken($colorWhite, 6);
+        }
+    }
+
+    // Size Classe
+    .btn-tiny {
+        @extend .fs-10;
+        &.btn-icon {
+            width: 1.75em;
+            height: 1.75em;
+            max-width: 1.75em;
+        }
+    }
+    .btn-small {
+        @extend .fs-9;
+        &.btn-icon {
+            width: 2em;
+            height: 2em;
+            max-width: 2em;
+        }
+    }
+    .btn-large {
+        @extend .fs-7;
+        &.btn-icon {
+            width: 2.25em;
+            height: 2.25em;
+            max-width: 2.25em;
+        }
+    }
+    .btn-big {
+        @extend .fs-6;
+        &.btn-icon {
+            width: 2.5em;
+            height: 2.5em;
+            max-width: 2.5em;
+        }
+    }
+    .btn-huge {
+        @extend .fs-4;
+        &.btn-icon {
+            width: 3em;
+            height: 3em;
+            max-width: 3em;
+        }
+    }
+    .btn-massive {
+        @extend .fs-3;
+        &.btn-icon {
+            width: 3.5em;
+            height: 3.5em;
+            max-width: 3.5em;
+        }
+    }
+    .btn-block {
+        display: block;
+        @extend .width-100;
+        @extend .text-center;
+        @extend .mar-10-y;
+        margin-left: 0;
+        margin-right: 0;
+        flex-basis: 100%;
+    }
+    .btn-icon {
+        padding: 0;
+        width: 2.25em;
+        height: 2.25em;
+        max-width: 2.25em;
+        @extend .align-center;
+        display: inline-flex;
+        > i {
+            outline: none;
+        }
+    }
+
+    // Button Color Classes
+    .btn-primary {
+        @extend .bg-first;
+        @extend .fc-white;
+        border-color: darken($colorFirst, 6);
+        &:hover {
+            background-color: darken($colorFirst, 6);
+            border-color: darken($colorFirst, 12);
+        }
+    }
+    .btn-secondary {
+        @extend .bg-second;
+        @extend .fc-white;
+        border-color: darken($colorSecond, 6);
+        &:hover {
+            background-color: darken($colorSecond, 6);
+            border-color: darken($colorSecond, 12);
+            @extend .fc-white
+        }
+    }
+    .btn-success {
+        @extend .bg-success;
+        @extend .fc-white;
+        border-color: darken($colorSuccess, 6);
+        &:hover {
+            background-color: darken($colorSuccess, 6);
+            border-color: darken($colorSuccess, 12);
+            @extend .fc-white;
+        }
+    }
+    .btn-danger {
+        @extend .bg-danger;
+        @extend .fc-white;
+        border-color: darken($colorDanger, 6);
+        &:hover {
+            background-color: darken($colorDanger, 6);
+            border-color: darken($colorDanger, 12);
+            @extend .fc-white;
+        }
+    }
+    .btn-warning {
+        @extend .bg-warning;
+        @extend .fc-white;
+        border-color: darken($colorWarning, 6);
+        &:hover {
+            background-color: darken($colorWarning, 6);
+            border-color: darken($colorWarning, 12);
+            @extend .fc-white;
+        }
+    }
+    .btn-info {
+        @extend .bg-info;
+        @extend .fc-white;
+        border-color: darken($colorInfo, 6);
+        &:hover {
+            background-color: darken($colorInfo, 6);
+            border-color: darken($colorInfo, 12);
+            @extend .fc-white;
+        }
+    }
+
+    // Outline
+
+    .btn-outline {
+        background-color: transparent;
+        &:hover {
+            background-color: darken($colorWhite, 6);
+        }
+        &.btn-primary {
+            @extend .fc-first;
+            border-color: $colorFirst;
+            &:hover {
+                background-color: darken($colorFirst, 6);
+                color: $colorWhite;
+            }
+        }
+        &.btn-secondary {
+            @extend .fc-second;
+            border-color: $colorSecond;
+            &:hover {
+                background-color: darken($colorSecond, 6);
+                color: $colorWhite;
+            }
+        }
+        &.btn-success {
+            @extend .fc-success;
+            border-color: $colorSuccess;
+            &:hover {
+                background-color: darken($colorSuccess, 6);
+                color: $colorWhite;
+            }
+        }
+        &.btn-danger {
+            @extend .fc-danger;
+            border-color: $colorDanger;
+            &:hover {
+                background-color: darken($colorDanger, 6);
+                color: $colorWhite;
+            }
+        }
+        &.btn-warning {
+            @extend .fc-warning;
+            border-color: $colorWarning;
+            &:hover {
+                background-color: darken($colorWarning, 6);
+                color: $colorWhite;
+            }
+        }
+        &.btn-info {
+            @extend .fc-info;
+            border-color: $colorInfo;
+            &:hover {
+                background-color: darken($colorInfo, 6);
+                color: $colorWhite;
+            }
+        }
+    }
+
+}
+
+
+//USE IN HTML EXAMPLE
+
+//<div class="btn btn-tiny btn-primary">buton tiny</div>
+//<div class="btn btn-small btn-primary">buton small</div>
+//<div class="btn btn-medium btn-primary">buton medium</div>
+//<div class="btn btn-large btn-success">buton large</div>
+//<div class="btn btn-big btn-danger">buton big</div>
+//<div class="btn btn-huge btn-warning">buton huge</div>
+//<div class="btn btn-massive btn-info">buton massive</div>

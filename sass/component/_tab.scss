@@ -1,0 +1,65 @@
+@if $useTabComponent == true {
+    .Tab {
+        @extend .width-100;
+        @extend .bg-white;
+        border-radius: 5px;
+        &.wrap-buttons {
+            .tab-button {
+                @extend .gr;
+            }
+        }
+        .tab-buttons {
+            @extend .flex-items;
+            @extend .nowrap-items;
+            background-color: #e6e6e6;
+        }
+        .tab-button {
+            @include padding(15, 25);
+            @extend .fc-black-light;
+            text-align: center;
+            cursor: pointer;
+            transition: 300ms ease-out all;
+            border-top: 2px solid #e6e6e6;
+            border-right: 1px solid darken(#e6e6e6, 4);
+            &:last-child {
+                border-right-width: 0;
+            }
+            &.active {
+                @extend .bg-white;
+                @extend .fc-first;
+                border-top: 2px solid $colorFirst;
+            }
+        }
+        .tab-content {
+            @include padding(25);
+            display: none;
+            &.active {
+                display: block;
+            }
+        }
+        &.type-2 {
+            border: 1px solid #e6e6e6;
+            box-shadow: 3px 5px 15px -5px rgba(0,0,0, 0.3);
+            border-radius: 5px;
+            .tab-buttons {
+                background-color: transparent;
+                padding: 1px;
+                overflow: hidden;
+                @extend .mar-#{$gap-val}-x
+            }
+            .tab-button {
+                border-right-width: 0px;
+                border-top-width: 0px;
+                border-bottom: 1px solid #fff;
+                &.active {
+                    border-bottom-color: $colorFirst;
+                }
+            }
+            .Datatable {
+                padding: 0;
+                box-shadow: unset;
+                background-color: unset;
+            }
+        }
+    }
+}

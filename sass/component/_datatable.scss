@@ -1,0 +1,105 @@
+.dt {
+    @extend .mar-15-y;
+    &-row-hiddens {
+        @extend .width-100;
+        max-height: 0;
+        overflow: hidden;
+        transition: 200ms linear max-height;
+        will-change: max-height;
+        background-color: $colorWhiteDark;
+        > .tbl-col {
+            @extend .pad-10-y;
+            @extend .align-start;
+            > .dt-img {
+                @extend .mar-10-l;
+                @extend .mar-0-y;
+            }
+        }
+        &-col {
+            max-width: fit-content;
+        }
+    }
+    &-col {
+        @extend .fw-600;
+        @extend .relative;
+        i {
+            cursor: pointer;
+        }
+        > .fa-times, .fa-search {
+            position: absolute;
+            right: 15px;
+            cursor: pointer;
+            transition: 250ms ease-out all;
+        }
+        > .fa-times {
+            transform: scale(0);
+            z-index: 1;
+        }
+        input {
+            @extend .bg-white;
+            border: none;
+            @extend .wrap-out;
+            transform: scale(0, 1);
+            transition: 250ms ease-out all;
+            border-bottom: 1px solid $colorFirst;
+            transform-origin: left center;
+            @extend .width-100;
+            opacity: 0;
+            text-indent: 15px;
+        }
+        &.focused {
+            input {
+                transform: scale(1);
+                opacity: 1;
+            }
+            > .fa-times {
+                color: $colorFirst;
+                transform: scale(1);
+            }
+            > .fa-search {
+                opacity: 0;
+                transform: scale(0);
+            }
+        }
+    }
+    &-text {
+        > span {
+            &::before {
+                content: attr(data-before);
+            }
+            &::after {
+                content: attr(data-after);
+            }
+        }
+    }
+    &-img {
+        width: 85%;
+        max-height: 100px;
+        object-fit: contain;
+        object-position: left;
+        @extend .mar-10-y;
+    }
+    &-btn-circle {
+        border-radius: 50%;
+    }
+    &-btn-no-text {
+        > i {
+            margin: 0;
+        }
+    }
+}
+.tbl-row-head {
+    .btn-icon {
+        background-color: transparent;
+        border: 0;
+        box-shadow: unset;
+        cursor: not-allowed;
+    }
+}
+.dt-col {
+    .tbl-head {
+        cursor: pointer;
+    }
+}
+
+

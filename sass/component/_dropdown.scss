@@ -1,0 +1,100 @@
+@if $useDropdownComponent == true {
+    .dropdown, .v-dropdown {
+        @extend .relative;
+        > a {
+            @extend .align-center-y;
+            &::after {
+                @extend .fas;
+                content: fa-content($fa-var-chevron-down);
+                @extend .mar-5-l;
+                @extend .fa-sm;
+                cursor: pointer;
+                pointer-events: none;
+                transition: 300ms all ease-in;
+            }
+        }
+        &.no-arrow {
+            > a {
+                &::after {
+                    content: unset;
+                    display: none;
+                }
+            }
+        }
+        &.center {
+            .drop-box {
+                left: 50%;
+                transform: translateX(-50%) translateY(15px);
+                &:before {
+                    content: '';
+                    @extend .absolute;
+                    @extend .left-50;
+                    @extend .top-0;
+                    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+                    @include box(12px, 12px, $colorWhite);
+                    border-left: 1px solid $colorWhiteDarkest;
+                    border-top: 1px solid $colorWhiteDarkest;
+                    z-index: -1;
+                }
+            }
+            &.active {
+                .drop-box {
+                    z-index: 1;
+                    transform: translateX(-50%) translateY(0);
+                    opacity: 1;
+                }
+            }
+            &.leave {
+                .drop-box {
+                    z-index: 1;
+                    transform: translateX(-50%) translateY(15px);
+                    opacity: 0;
+                    transition: 300ms all ease-out;
+                }
+            }
+
+        }
+        &.active {
+            .drop-box {
+                z-index: 1;
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        &.leave {
+            .drop-box {
+                z-index: 1;
+                transform: translateY(15px);
+                opacity: 0;
+                transition: 300ms all ease-out;
+            }
+        }
+    }
+    .drop-box {
+        @extend .bg-white;
+        @extend .pad-5-y;
+        @extend .absolute;
+        @extend .left-0;
+        top: calc(100% + 10px);
+        border: 1px solid $colorWhiteDarkest;
+        z-index: -1;
+        opacity: 0;
+        transform: translateY(15px);
+        will-change: opacity, transform;
+        transition: 300ms all ease-in;
+        > ul {
+            width: max-content;
+            min-width: 100%;
+            > li {
+                transition: 300ms all ease-in;
+                &:hover {
+                    @extend .bg-white-dark;
+                }
+                > a {
+                    @include padding(10, 20);
+                    min-width: 125px;
+                }
+            }
+        }
+    }
+}

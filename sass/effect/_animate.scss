@@ -1,0 +1,15 @@
+@keyframes rotateY-360 {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(359deg);
+    }
+}
+
+.rotateY-360 {
+    animation: rotateY-360 1s linear infinite;
+    &.slow {
+        animation-duration: 2s;
+    }
+}

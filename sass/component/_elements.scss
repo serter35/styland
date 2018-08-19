@@ -1,0 +1,412 @@
+@if $useElementsComponent == true {
+    // INPUT CLASS (INPUT, SELECT, TEXTAREA)
+    %box-input-props {
+        @extend .width-100;
+        @extend .fc-black-light;
+        border: 1px solid $colorWhiteDarkest;
+        border-radius: 4px;
+        transition: 200ms ease-in border;
+        font-size: inherit;
+        @extend .bg-white;
+        &:focus {
+            border-color: $colorFirst;
+        }
+    }
+    .input {
+        @extend .block-item;
+        @extend .fs-8;
+        textarea {
+            resize: none;
+            height: 10em;
+            @extend .pad-10;
+            @extend %box-input-props
+        }
+        input, select {
+            @extend %box-input-props;
+            display: block;
+            height: 2.5em;
+            padding: 0 0.8em;
+            line-height: 1;
+            @extend .text-elipsis;
+        }
+        &-icon {
+            @extend .relative;
+            > .icon {
+                font-size: inherit;
+                @extend .absolute;
+                @extend .left-0;
+                width: 2.5em;
+                background-color: $colorWhiteDarkest;
+                @extend .top-0;
+                @extend .height-100;
+                @extend .align-center;
+                border-radius: 4px 0 0 4px;
+                transition: 200ms ease-in background;
+                &:before {
+                    transition: 200ms ease-in color;
+                }
+            }
+            > input, > select {
+                padding-left: calc(0.8em + 2.5em); // icon width size -> 2.5em - default input gap -> 0.8em
+                &:focus + .icon {
+                    background-color: $colorFirst;
+                    @extend .fc-white;
+                    &:before {
+                        color: inherit;
+                    }
+                }
+            }
+            &-align-right {
+                > .icon {
+                    border-radius: 0 4px 4px 0;
+                    left: auto;
+                    @extend .right-0;
+                }
+                > input, > select {
+                    padding-left: 0.8em;
+                    padding-right: calc(0.8em + 2.5em); // icon width size -> 2.5em - default input gap -> 0.8em
+                }
+            }
+         }
+        &-curved {
+            > input, select {
+                border-radius: 1.5em;
+                padding: 0 0.95em;
+            }
+        }
+        &-group {
+            @extend .flex-items;
+            @extend .select;
+            input {
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+                @extend .gr;
+                &:focus {
+                    + select {
+                        border-color: $colorFirst;
+                    }
+                    + label + select {
+                        border-color: $colorFirst;
+                    }
+                }
+                + select, + label + select {
+                    width: fit-content;
+                    min-width: unset;
+                    border-top-left-radius: 0;
+                    border-bottom-left-radius: 0;
+                    border-left-width: 0px;
+                    padding-left: 15px;
+                    padding-right: 30px;
+                    &:focus {
+                        border-color: $colorWhiteDarkest;
+                    }
+                }
+            }
+        }
+        &-underline {
+            @extend .relative;
+            @extend .underline-effect;
+            @extend .mar-30-t;
+            padding: 0;
+            &:hover {
+                &::before {
+                    width: 0;
+                }
+            }
+            &:before {
+                z-index: 1;
+            }
+            > input {
+                border-top-width: 0;
+                border-left-width: 0;
+                border-right-width: 0;
+                border-bottom-width: 2px;
+                border-radius: 0 !important;
+                transition: border 200ms ease-in;
+                padding-left: 0;
+                background-color: transparent;
+                box-shadow: unset;
+                @extend .pad-30-r;
+            }
+            > label {
+                background-color: transparent;
+                width: unset;
+                @extend .absolute;
+                @extend .transform-center-y;
+                right: 15px;
+            }
+            &::after {
+                @extend .absolute;
+                content: attr(data-placeholder);
+                @extend .top-50;
+                transform: translateY(-50%);
+                @extend .left-0;
+                @extend .right-0;
+                display: inline-block;
+                pointer-events: none;
+                transition: 200ms all ease-in;
+                @extend .fc-black-lightness;
+                @extend .text-elipsis;
+            }
+            &.input-icon {
+                > .icon {
+                    background-color: transparent !important;
+                    color: $colorWhiteDarkness;
+                    width: fit-content;
+                    &:before {
+                        background-color: inherit !important;
+                    }
+                }
+                > input, &::after {
+                    padding-left: 1.5em;
+                }
+            }
+            &.input-icon-align-right {
+                > input, &::after {
+                    padding-left: 0;
+                    padding-right: 1.5em;
+                }
+            }
+            &.active {
+                &::before {
+                    width: 100%;
+                }
+                &:after {
+                    @extend .fs-9;
+                    @extend .top-0;
+                    transform: translateY(-85%);
+                    color: $colorFirst;
+                }
+                > input {
+                    border-bottom-color: transparent;
+                }
+                &.input-icon {
+                    > .icon {
+                        color: $colorFirst;
+                    }
+                    &::after {
+                        padding-left: 0;
+                    }
+                }
+            }
+        }
+        // Size
+        &-tiny {
+            @extend .fs-10;
+        }
+        &-small {
+            @extend .fs-9;
+        }
+        &-large {
+            @extend .fs-7;
+        }
+        &-big {
+            @extend .fs-6;
+        }
+        &-huge {
+            @extend .fs-4;
+        }
+        &-massive {
+            @extend .fs-2;
+        }
+        // Color
+        &-success {
+            > input, select, textarea {
+                border-color: lighten($colorSuccess, 12);
+            }
+            > input:focus {
+                border-color: $colorSuccess;
+            }
+            &.input-icon {
+                > .icon {
+                    background-color: lighten($colorSuccess, 12);
+                    color: $colorWhite;
+                }
+                input:focus {
+                    + .icon {
+                        background-color: $colorSuccess;
+                    }
+                }
+            }
+            &.input-underline.input-icon {
+                > .icon {
+                    color: lighten($colorSuccess, 12);
+                }
+                > input {
+                    border-color: lighten($colorSuccess, 12);
+                    &:focus + .icon {
+                        color: $colorSuccess;
+                    }
+                }
+                &::before {
+                    background-color: $colorSuccess;
+                }
+                &.active {
+                    &::before {
+                        background-color: $colorSuccess;
+                    }
+                    &::after {
+                        color: $colorSuccess;
+                    }
+                }
+            }
+        }
+        &-danger {
+            > input, select, textarea {
+                border-color: lighten($colorDanger, 12);
+            }
+            > input:focus {
+                border-color: $colorDanger;
+            }
+            &.input-icon {
+                > .icon {
+                    background-color: lighten($colorDanger, 12);
+                    color: $colorWhite;
+                }
+                input:focus {
+                    + .icon {
+                        background-color: $colorDanger;
+                    }
+                }
+            }
+            &.input-underline.input-icon {
+                > .icon {
+                    color: lighten($colorDanger, 12);
+                }
+                > input {
+                    border-color: lighten($colorDanger, 12);
+                    &:focus + .icon {
+                        color: $colorDanger;
+                    }
+                }
+                &::before {
+                    background-color: $colorDanger;
+                }
+                &.active {
+                    &::before {
+                        background-color: $colorDanger;
+                    }
+                    &::after {
+                        color: $colorDanger;
+                    }
+                }
+            }
+        }
+        &-warning {
+            > input, select, textarea {
+                border-color: lighten($colorWarning, 12);
+            }
+            > input:focus {
+                border-color: $colorWarning;
+            }
+            &.input-icon {
+                > .icon {
+                    background-color: lighten($colorWarning, 12);
+                    color: $colorWhite;
+                }
+                input:focus {
+                    + .icon {
+                        background-color: $colorWarning;
+                    }
+                }
+            }
+            &.input-underline.input-icon {
+                > .icon {
+                    color: lighten($colorWarning, 12);
+                }
+                > input {
+                    border-color: lighten($colorWarning, 12);
+                    &:focus + .icon {
+                        color: $colorWarning;
+                    }
+                }
+                &::before {
+                    background-color: $colorWarning;
+                }
+                &.active {
+                    &::before {
+                        background-color: $colorWarning;
+                    }
+                    &::after {
+                        color: $colorWarning;
+                    }
+                }
+            }
+        }
+        &-info {
+            > input, select, textarea {
+                border-color: lighten($colorInfo, 12);
+            }
+            > input:focus {
+                border-color: $colorInfo;
+            }
+            &.input-icon {
+                > .icon {
+                    background-color: lighten($colorInfo, 12);
+                    color: $colorWhite;
+                }
+                input:focus {
+                    + .icon {
+                        background-color: $colorInfo;
+                    }
+                }
+            }
+            &.input-underline.input-icon {
+                > .icon {
+                    color: lighten($colorInfo, 12);
+                }
+                > input {
+                    border-color: lighten($colorInfo, 12);
+                    &:focus + .icon {
+                        color: $colorInfo;
+                    }
+                }
+                &::before {
+                    background-color: $colorInfo;
+                }
+                &.active {
+                    &::before {
+                        background-color: $colorInfo;
+                    }
+                    &::after {
+                        color: $colorInfo;
+                    }
+                }
+            }
+        }
+        > [disabled="disabled"] {
+            background-color: $colorWhiteDarken !important;
+            border-color: $colorWhiteDarkest !important;
+            cursor: not-allowed;
+            opacity: .8;
+            + .icon {
+                background-color: $colorWhiteDarkest !important;
+                opacity: .8;
+                cursor: not-allowed;
+            }
+        }
+    }
+
+    /* SELECT CUSTOM PROPERTY */
+    .select {
+        @extend .relative;
+        @extend .fa-icon;
+        @extend .fa-chevron-down;
+        &::before {
+            @extend .right-0;
+            @extend .mar-10-r;
+            @extend .transform-center-y;
+            @extend .fc-black-lightness;
+            @extend .fs-10;
+            pointer-events: none;
+            background-color: transparent;
+            transition: 250ms ease-out transform;
+            will-change: transform;
+        }
+        select {
+            padding-right: 30px;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+        }
+    }
+}

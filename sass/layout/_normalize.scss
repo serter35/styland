@@ -1,0 +1,76 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    outline: 0;
+}
+
+body {
+    @include font($defaultFontColor, $defaultFontSize, $defaultFontWeight, $ffFirst);
+    @extend .bg-white-dark;
+}
+
+h1 {
+    @extend .fs-1;
+    @extend .fw-500;
+}
+
+h2 {
+    @extend .fs-2;
+    @extend .fw-500;
+}
+
+h3 {
+    @extend .fs-3;
+    @extend .fw-500;
+}
+
+h4 {
+    @extend .fs-4;
+    @extend .fw-500;
+}
+
+h5 {
+    @extend .fs-5;
+    @extend .fw-500;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    display: block;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    display: block;
+}
+input {
+    border-style: solid;
+    &::-webkit-outer-spin-button, &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    &[type="number"] {
+        -moz-appearance: textfield;
+    }
+}
+button {
+    &::-moz-focus-inner {
+        border: 0;
+    }
+}
+select:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #000;
+}
+form * {
+    -webkit-appearance: none;
+}
+
+
+
+

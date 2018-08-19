@@ -1,0 +1,45 @@
+@mixin margin ($var1: null, $var2: null, $var3: null, $var4: null) {
+  @if $var1 != null and $var1 <= $marginMax and $var1 > $marginMin {
+    @if $var1 % $marginStep == 0 and $var1 <= $marginMax {
+      @extend .mar-#{$var1};
+    } @else {
+      margin: #{$var1 + "px"};
+    }
+  }
+  @else if  $var1 != null and $var2 != null and $var3 == null {
+    @if $var1 % $marginStep == 0 and $var1 <= $marginMax and $var1 > $marginMin {
+      @extend .mar-#{$var1}-y;
+    } @else {
+      margin-top: #{$var1 + "px"};
+      margin-bottom: #{$var1 + "px"};
+    }
+    @if $var2 % $marginStep == 0 and $var2 <= $marginMax and $var2 > $marginMin {
+      @extend .mar-#{$var2}-x;
+    } @else {
+      margin-left: #{$var2 + "px"};
+      margin-right: #{$var2 + "px"};
+    }
+  }
+  @else if $var1 != null and $var2 != null and $var3 != null and $var4 != null {
+    @if $var1 % $marginStep == 0 and $var1 <= $marginMax and $var1 > $marginMin{
+      @extend %mar-#{$var1}-l;
+    } @else {
+      margin-left: #{$var1 + "px"};
+    }
+    @if $var2 % $marginStep == 0 and $var2 <= $marginMax and $var2 > $marginMin {
+      @extend %mar-#{$var2}-r;
+    } @else {
+      margin-right: #{$var2 + "px"};
+    }
+    @if $var3 % $marginStep == 0 and $var3 <= $marginMax and $var3 > $marginMin {
+      @extend %mar-#{$var3}-t;
+    } @else {
+      margin-top: #{$var3 + "px"};
+    }
+    @if $var4 % $marginStep == 0 and $var4 <= $marginMax and $var4 > $marginMin {
+      @extend %mar-#{$var4}-b;
+    } @else {
+      margin-bottom: #{$var4 + "px"};
+    }
+  }
+}

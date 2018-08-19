@@ -1,0 +1,103 @@
+.text-elipsis {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+// POSITION
+.wrap-out-x {
+    @extend .absolute;
+    @extend .pos-0-x;
+}
+
+.wrap-out-y {
+    @extend .absolute;
+    @extend .pos-0-y;
+}
+
+.wrap-out {
+    @extend .wrap-out-x;
+    @extend .wrap-out-y;
+}
+
+.clear-gap-x {
+    margin-right: -#{$gap-val}px;
+    margin-left: -#{$gap-val}px;
+}
+
+.transform-center-x {
+    @extend .absolute;
+    @extend .left-50;
+    transform: translate3d(-50%, 0, 0);
+}
+
+.transform-center-y {
+    @extend .absolute;
+    @extend .top-50;
+    transform: translate3d(0, -50%, 0);
+}
+
+.transform-center {
+    @extend .absolute;
+    @extend .left-50;
+    @extend .top-50;
+    transform: translate3d(-50%, -50%, 0);
+}
+
+.far-icon, .fab-icon, .fas-icon, .fa-icon {
+    &.left {
+        &::before {
+            @extend .mar-5-r;
+        }
+    }
+    &.right {
+        &::before {
+            @extend .mar-5-l;
+        }
+    }
+    &.gap-2x {
+        &.left {
+            &::before {
+                @extend .mar-10-r;
+            }
+        }
+        &.right {
+            &::before {
+                @extend .mar-10-l;
+            }
+        }
+    }
+}
+.far-icon {
+    &::before {
+        @extend .far;
+    }
+}
+.fab-icon {
+    &::before {
+        @extend .fab;
+    }
+}
+.fas-icon, .fa-icon {
+    &::before {
+        @extend .fas;
+    }
+}
+
+.circle-shape {
+    border-radius: 50%;
+}
+
+.curved-shape {
+    border-radius: 15px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.background-prop {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}

@@ -1,0 +1,25 @@
+// Example -> @include position (absolute, 0px, initial)
+// Example -> @include position (absolute, 30px)
+@mixin position ($position: null, $var1: null, $var2: null, $var3: null, $var4: null) {
+  @if $position != null {
+    @extend .#{$position}
+  }
+  @if $var1 != null and $var2 == null {
+    top: $var1;
+    bottom: $var1;
+    left: $var1;
+    right: $var1;
+  }
+  @else if  $var1 != null and $var2 != null and $var3 == null {
+    top: $var1;
+    bottom: $var1;
+    left: $var2;
+    right: $var2;
+  }
+  @else if $var1 != null and $var2 != null and $var3 != null and $var4 != null {
+    top: $var1;
+    bottom: $var2;
+    left: $var3;
+    right: $var4;
+  }
+}

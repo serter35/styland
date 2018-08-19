@@ -1,0 +1,124 @@
+@if $useFileComponent == true {
+    .file {
+        display: inline-block;
+        @extend .mar-10-r;
+        max-width: 100%;
+        > [type="file"] {
+            display: none;
+            + label {
+                @extend .btn;
+                &::before {
+                    @extend .mar-10-r;
+                    @extend .fa;
+                    content: '\f093';
+                }
+            }
+        }
+        &.no-icon {
+            > [type="file"] {
+                + label {
+                    &::before {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+    .file-outline {
+        > [type="file"] {
+            + label {
+                @extend .btn-outline;
+            }
+        }
+    }
+    .file-link {
+        > [type="file"] {
+            + label {
+                background-color: transparent;
+                border-width: 0;
+                transition: 150ms color linear;
+                will-change: color;
+                box-shadow: unset;
+                &:hover {
+                    background-color: transparent;
+                    @extend .fc-black;
+                }
+            }
+        }
+    }
+    .file-block {
+        @extend .file-link;
+        > [type="file"] {
+            + label {
+                display: flex;
+                align-items: center;
+                @extend .direction-y;
+                &::before {
+                    @extend .mar-0-r;
+                    @extend .mar-10-b;
+                    width: 2.25em;
+                    height: 2.25em;
+                    @extend .align-center;
+                    @extend .bg-white;
+                    @extend .circle-shape;
+                }
+            }
+        }
+    }
+    .file-photo {
+        @extend .width-100;
+        > [type="file"] + label {
+            width: 50%;
+            @extend .relative;
+            @extend .text-center;
+            @extend .background-prop;
+            padding: 0;
+            &::after {
+                @extend .block-item;
+                @extend .width-100;
+                content: '';
+                padding-top: 45%;
+            }
+            &::before {
+                @extend .wrap-out;
+                @extend .align-center;
+                @extend .mar-0;
+                opacity: 0;
+                transition: 400ms opacity ease-out;
+                background-color: rgba(0,0,0, .5);
+                color: $colorWhite;
+            }
+            &:hover {
+                &::before {
+                    opacity: 1;
+                }
+            }
+        }
+
+    }
+    .image-preview {
+        border: 1px solid $colorWhiteDarkest;
+        border-radius: 4px;
+        box-shadow: 3px 2px 25px -4px rgba(0,0,0, 0.2);
+        display: inline-block;
+        @extend .fa-icon;
+        @extend .fa-image;
+        @extend .relative;
+        width: 240px;
+        height: 10rem;
+        overflow: hidden;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: relative;
+            z-index: 1;
+        }
+        &::before {
+            margin: 0;
+            @extend .fc-white-darkness;
+            @extend .fs-6;
+            @extend .transform-center;
+        }
+    }
+}

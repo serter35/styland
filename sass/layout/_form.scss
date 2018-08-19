@@ -1,0 +1,172 @@
+.choose-group {
+    > .choose {
+        @extend .mar-10-r;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+.field-group {
+    + .field-group {
+        @extend .mar-15-t;
+    }
+    .choose {
+        margin-bottom: 0;
+    }
+    &.warning {
+        label {
+            @extend .fc-warning;
+        }
+        input, select, textarea {
+            @extend .fc-warning;
+            border-color: $colorWarning;
+        }
+        .field-msg {
+            @extend .fc-warning;
+        }
+    }
+    &.info {
+        label {
+            @extend .fc-info;
+        }
+        input, select, textarea {
+            @extend .fc-info;
+            border-color: $colorInfo;
+        }
+        .field-msg {
+            @extend .fc-info;
+        }
+    }
+    &.success {
+        label {
+            @extend .fc-success;
+        }
+        input, select, textarea {
+            @extend .fc-success;
+            border-color: $colorSuccess;
+        }
+        .field-msg {
+            @extend .fc-success;
+        }
+    }
+    &.error {
+        label {
+            @extend .fc-danger;
+        }
+        input, select, textarea {
+            @extend .fc-danger;
+            border-color: $colorDanger;
+        }
+        .field-msg {
+            @extend .fc-danger;
+        }
+    }
+    > label {
+        display: block;
+        @extend .mar-5-b;
+        &:first-of-type {
+            @extend .relative;
+            &::after {
+                content: '*';
+                @extend .relative;
+                top: -2px;
+                right: -2px;
+            }
+        }
+    }
+    .input {
+        + .field-message {
+            @extend .mar-5-t;
+        }
+    }
+    .field-message {
+        display: block;
+        padding-left: 2px;
+    }
+    &.optional {
+        > label {
+            &:first-of-type {
+                &::after {
+                    content: '';
+                }
+            }
+        }
+    }
+
+}
+
+.field-message {
+    display: block;
+    &.align-right {
+        @extend .text-right;
+    }
+    &.align-left {
+        @extend .text-left;
+    }
+}
+
+.form-headbar {
+    @extend .align-center-y;
+    @extend .align-between-x;
+    @include padding($gap-val, 25);
+    @extend .mar-30-b;
+    @extend .bg-white;
+}
+
+.form-container {
+    @extend .pad-30;
+    @extend .bg-white;
+    border-radius: 4px;
+    border: 1px solid $colorWhiteDarken;
+    box-shadow: 3px 3px 15px rgba(#000, .1);
+    > .form-headbar {
+        @extend .mar-0-t;
+        @extend .mar-45-b;
+        @extend .pad-0;
+        box-shadow: unset;
+        border-radius: 0;
+        h1, h2, h3, h4, h5 {
+            @extend .relative;
+            @extend .pad-10-b;
+            &::before {
+                content: '';
+                height: 3px;
+                width: 35%;
+                @extend .bg-first;
+                @extend .absolute;
+                @extend .bottom-0;
+                border-radius: 4px;
+            }
+        }
+    }
+}
+
+.horrizontal-form {
+    .field-group {
+        @extend .align-start-y;
+        margin-bottom: 20px;
+        display: flex;
+        > :not(label) {
+            flex: 2;
+            max-width: unset;
+        }
+        > label {
+            flex: 1;
+            margin-bottom: 0;
+            padding-top: 2px;
+        }
+    }
+    [class*="-grids-"] {
+        .field-group {
+            &:nth-child(odd) {
+                margin-right: 5%;
+            }
+            &:nth-child(even) {
+                margin-left: 5%;
+            }
+        }
+    }
+}
+
+

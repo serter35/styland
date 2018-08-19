@@ -1,0 +1,10 @@
+$ffFirst: $fallbackFontFamily;
+@if $fontFamilyNamePrimary != null {
+    @import url('https://fonts.googleapis.com/css?family=#{str-replace($fontFamilyNamePrimary, " ", "+")}:#{getGoogleFontWeights($fontWeights)}&subset=latin-ext');
+    $ffFirst: $fontFamilyNamePrimary, $fontFamilyNameSecondary, $fallbackFontFamily;
+}
+$ffSecond: $fallbackFontFamily;
+@if $fontFamilyNameSecondary != null {
+    @import url('https://fonts.googleapis.com/css?family=#{str-replace($fontFamilyNameSecondary, " ", "+")}:#{getGoogleFontWeights($fontWeights)}&subset=latin-ext');
+    $ffSecond: $fontFamilyNameSecondary, $fontFamilyNamePrimary, $fallbackFontFamily;
+}

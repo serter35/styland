@@ -1,0 +1,125 @@
+@if $useSideNavbarComponent == true {
+  .SideNavBar {
+    width: 260px;
+    background-color: $colorBlack;
+    min-height: 100vh;
+    @extend .pad-10-b;
+    a, i {
+      color: $colorWhiteDark;
+    }
+  }
+  .snb-group {}
+  .snb-title {
+    @extend .fs-9;
+    @extend .fc-white-dark;
+    @extend .pad-20-x;
+    @extend .pad-10-y;
+    @extend .bg-black-light;
+    box-shadow: inset 0 5px 15px -3px rgba($colorBlackLightest, .5), 0px 3px 15px -5px rgba(#000, .5);
+  }
+  .snb-list {  }
+  .snb-item {
+    @extend .relative;
+    z-index: 1;
+    margin: 2.5px 0;
+    background: linear-gradient(to left, rgba($colorBlackLight, .08) 0%, rgba($colorBlackLightest, .08) 100%);
+    &:before {
+      content: '';
+      @extend .wrap-out;
+      @extend .height-100;
+      background-color: $colorBlackLight;
+      opacity: 0;
+      z-index: -1;
+      border-left: 3px solid $colorFirst;
+      border-right: 3px solid transparent;
+      transition: all ease-in 250ms;
+    }
+    &.active, &:hover, &.snb-dropper.show {
+      &:before {
+        opacity: 1;
+      }
+    }
+  }
+  .snb-dropper {
+    overflow: hidden;
+    > .snb-link:after {
+      display: inline-block;
+    }
+    &.show {
+      > .snb-drop-list {
+        opacity: 1;
+        max-height: 400px;
+        transition: all ease-in 350ms;
+      }
+      > a::after {
+        transform: rotate(180deg);
+      }
+    }
+  }
+  .snb-link {
+    display: block;
+    @extend .relative;
+    @include padding(10, 20);
+    line-height: 1;
+    > * {
+      font-size: inherit;
+      color: inherit;
+    }
+    &:after {
+      display: none;
+      font-family: "FontAwesome";
+      content: '\f107';
+      @extend .absolute;
+      right: 20px;
+      @extend .fs-9;
+      transition: 0.2s;
+      backface-visibility: hidden;
+    }
+  }
+  .snb-icon {
+    @extend .pad-10-r;
+  }
+  .snb-arrow {
+    @extend .absolute;
+    right: 30px;
+  }
+  .snb-drop-list {
+    @extend .pad-40-l;
+    max-height: 0;
+    opacity: 0;
+    transition: all ease-out 350ms;
+  }
+
+  .snb-drop-link {
+    @extend .pad-10-y;
+    transition: 200ms ease-in all;
+    @extend .fs-9;
+    &:hover {
+      transform: translateX(5px);
+      color: $colorWhite;
+    }
+  }
+  #snb-mob-row {
+    @extend .align-center-y;
+    @extend .pad-20-x;
+    @extend .pad-10-y;
+    display: none;
+    > h5 {
+      display: inline-block;
+      cursor: pointer;
+      @extend .fc-white;
+      > i {
+        @extend .mar-10-r;
+      }
+    }
+  }
+  .snb-content {
+    transition: max-height 500ms ease-out;
+    overflow: hidden;
+    &.show {
+      transition: max-height 500ms ease-in;
+      max-height: 2000px;
+    }
+  }
+}
+

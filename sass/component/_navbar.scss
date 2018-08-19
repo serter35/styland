@@ -1,0 +1,71 @@
+@if $useNavbarComponent == true {
+    .TopNavBar {
+        @extend .width-100;
+        @extend .bg-white;
+        @extend .pad-#{$gap-val}-y;
+        box-shadow: 0 3px 25px -2px rgba(#000, .05);
+        @extend .relative;
+    }
+    .tnb {
+        @extend .align-center-y;
+        @extend .align-between-x;
+        &-logo {
+            line-height: 1;
+        }
+        &-nav {
+            &-inner {
+                @extend .mar-25-l;
+                font-size: 0;
+                @extend .align-center-y;
+            }
+            &-item {
+                @extend .mar-25-r;
+                @extend .relative;
+                @extend .fc-black-lighten;
+                display: inline-block;
+                @extend .fs-8;
+                &:last-child {
+                    margin-left: 0;
+                }
+            }
+            &-link {
+                color: inherit;
+                cursor: pointer;
+                transition: 200ms width ease-in;
+                line-height: 1;
+                @extend .pad-5-y;
+                &:hover {
+                    @extend .fc-first;
+                }
+            }
+        }
+    }
+    // Nav Management
+    .tnb-mng {
+        @extend .mar-auto-l;
+        > :first-child {
+            @extend .align-center-y;
+            span {
+                @extend .mar-10-r;
+            }
+            img {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                border: 1px solid $colorWhite;
+                vertical-align: middle;
+            }
+        }
+    }
+
+    // MOBİLE
+    .tnb-mob-btn {
+        display: none;
+        z-index: 100;
+        font-size: 24px;
+        @extend .fas;
+        @extend .fa-bars;
+        cursor: pointer;
+    }
+}
+

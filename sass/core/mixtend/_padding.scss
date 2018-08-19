@@ -1,0 +1,45 @@
+@mixin padding ($var1: null, $var2: null, $var3: null, $var4: null) {
+  @if $var1 != null and $var2 == null {
+    @if $var1 % $paddingStep == 0 and $var1 <= $paddingMax {
+      @extend .pad-#{$var1};
+    } @else {
+      padding: #{$var1 + "px"};
+    }
+  }
+  @else if  $var1 != null and $var2 != null and $var3 == null {
+    @if $var1 % $paddingStep == 0 and $var1 <= $paddingMax and $var1 > $paddingMin {
+      @extend .pad-#{$var1}-y;
+    } @else {
+      padding-top: #{$var1 + "px"};
+      padding-bottom: #{$var1 + "px"};
+    }
+    @if $var2 % $paddingStep == 0 and $var2 <= $paddingMax and $var2 > $paddingMin {
+      @extend .pad-#{$var2}-x;
+    } @else {
+      padding-left: #{$var2 + "px"};
+      padding-right: #{$var2 + "px"};
+    }
+  }
+  @else if $var1 != null and $var2 != null and $var3 != null and $var4 != null {
+    @if $var1 % $paddingStep == 0 and $var1 <= $paddingMax and $var1 > $paddingMin{
+      @extend .pad-#{$var1}-t;
+    } @else {
+      padding-top: #{$var1 + "px"};
+    }
+    @if $var2 % $paddingStep == 0 and $var2 <= $paddingMax and $var2 > $paddingMin {
+      @extend .pad-#{$var2}-r;
+    } @else {
+      padding-right: #{$var2 + "px"};
+    }
+    @if $var3 % $paddingStep == 0 and $var3 <= $paddingMax and $var3 > $paddingMin {
+      @extend .pad-#{$var3}-b;
+    } @else {
+      padding-bottom: #{$var3 + "px"};
+    }
+    @if $var4 % $paddingStep == 0 and $var4 <= $paddingMax and $var4 > $paddingMin {
+      @extend .pad-#{$var4}-l;
+    } @else {
+      padding-left: #{$var4 + "px"};
+    }
+  }
+}

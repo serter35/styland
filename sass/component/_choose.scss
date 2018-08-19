@@ -1,0 +1,274 @@
+@if $useChooseComponent == true {
+    .choose {
+        font-size: 0;
+        @extend .mar-15-b;
+        display: inline-flex;
+        align-items: center;
+        > input {
+            display: none;
+            + label {
+                @extend .align-center;
+                @extend .fs-8;
+                cursor: pointer;
+                @extend .bg-white;
+                border: 1px solid $colorWhiteDarkest;
+                transition: 300ms ease-out all;
+                &:before {
+                    @extend .fa;
+                    @extend .fa-check;
+                    display: block;
+                    @extend .fc-black-lightness;
+                    transition: 300ms ease-out transform;
+                    transform: scale(0, 0);
+                    font-size: inherit;
+                }
+            }
+            &:disabled {
+                + label {
+                    @extend .fa-times;
+                    @extend .bg-white-darkness;
+                    &::before {
+                        transform: scale(1, 1);
+                        @extend .fc-white-dark;
+                    }
+                }
+            }
+            &:checked {
+                + label {
+                    &::before {
+                        transform: scale(1, 1);
+                        content: "\F00C";
+                    }
+                }
+            }
+        }
+        > .text {
+            user-select: none;
+            @extend .pad-5-l;
+            cursor: pointer;
+            line-height: 1;
+            transition: 300ms ease-out color
+        }
+    }
+
+    // Shape
+    .choose-rectangle {
+        > input {
+            + label {
+                width: 1.35em;
+                height: 1.35em;
+                border-radius: 1px;
+            }
+        }
+    }
+    .choose-circle {
+        > input {
+            + label {
+                width: 1.50em;
+                height: 1.50em;
+                @extend .circle-shape;
+            }
+        }
+    }
+
+    // Size
+    .choose-tiny {
+        > input {
+            + label {
+                @extend .fs-10;
+            }
+        }
+    }
+    .choose-small {
+        > input {
+            + label {
+                @extend .fs-9;
+            }
+        }
+    }
+    .choose-large {
+        > input {
+            + label {
+                @extend .fs-7;
+            }
+        }
+    }
+    .choose-big {
+        > input {
+            + label {
+                @extend .fs-10;
+            }
+        }
+    }
+    .choose-huge {
+        > input {
+            + label {
+                @extend .fs-4;
+            }
+        }
+    }
+    .choose-massive {
+        > input {
+            + label {
+                @extend .fs-3;
+            }
+        }
+    }
+
+    // Color
+    .choose-primary {
+        > input {
+            + label {
+                &:before {
+                    @extend .fc-white;
+                }
+            }
+            &:checked {
+                + label {
+                    @extend .bg-first;
+                    border: 1px solid darken($colorFirst, 6);
+                    + .text {
+                        color: $colorFirst;
+                    }
+                }
+            }
+        }
+    }
+    .choose-success {
+        > input {
+            + label {
+                &:before {
+                    @extend .fc-white;
+                }
+            }
+            &:checked {
+                + label {
+                    @extend .bg-first;
+                    border: 1px solid darken($colorSuccess, 6);
+                    + .text {
+                        color: $colorSuccess;
+                    }
+                }
+            }
+        }
+    }
+    .choose-danger {
+        > input {
+            + label {
+                &:before {
+                    @extend .fc-white;
+                }
+            }
+            &:checked {
+                + label {
+                    @extend .bg-first;
+                    border: 1px solid darken($colorDanger, 6);
+                    + .text {
+                        color: $colorDanger;
+                    }
+                }
+            }
+        }
+    }
+    .choose-info {
+        > input {
+            + label {
+                &:before {
+                    @extend .fc-white;
+                }
+            }
+            &:checked {
+                + label {
+                    @extend .bg-first;
+                    border: 1px solid darken($colorInfo, 6);
+                    + .text {
+                        color: $colorInfo;
+                    }
+                }
+            }
+        }
+    }
+    .choose-warning {
+        > input {
+            + label {
+                &:before {
+                    @extend .fc-white;
+                }
+            }
+            &:checked {
+                + label {
+                    @extend .bg-first;
+                    border: 1px solid darken($colorWarning, 6);
+                    + .text {
+                        color: $colorWarning;
+                    }
+                }
+            }
+        }
+    }
+
+    .choose-accordion {
+        @include padding(10, 15);
+        cursor: pointer;
+        @extend .bg-white;
+        box-shadow: 5px 3px 15px -2px rgba(0,0,0, .25);
+        transition: 300ms ease-out max-height;
+        max-height: 40px;
+        overflow: hidden;
+        @extend .mar-10-b;
+        @extend .mar-0-last;
+        .choose {
+            @extend .width-100;
+            @extend .mar-0-b;
+            @extend .flex-items;
+            @extend .relative;
+            &::after {
+                content: '';
+                pointer-events: none;
+                width: 3px;
+                height: 10px;
+                border-radius: 1px;
+                @extend .bg-black-lighten;
+                @extend .absolute;
+                @extend .right-0;
+                transition: 300ms ease-out all;
+            }
+            &::before {
+                content: '';
+                pointer-events: none;
+                width: 3px;
+                height: 10px;
+                border-radius: 1px;
+                @extend .bg-black-lighten;
+                @extend .absolute;
+                @extend .right-0;
+                transform: rotate(90deg);
+                transition: 300ms ease-out all;
+            }
+        }
+        &.active {
+            max-height: var(--active-accordion-height);
+            > ul {
+                opacity: 1;
+            }
+            .choose {
+                &::before {
+                    transform: rotate(120deg);
+                    opacity: 0;
+                }
+                &::after {
+                    transform: rotate(90deg);
+                }
+            }
+        }
+        > ul {
+            opacity: 0;
+            transition: 300ms ease-out opacity;
+            @extend .pad-15-t;
+            > li {
+                @extend .mar-10-b;
+                @extend .mar-0-last;
+            }
+        }
+    }
+}

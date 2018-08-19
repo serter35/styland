@@ -1,0 +1,38 @@
+$pCount: $paddingMax;
+@while $pCount >= $paddingMin {
+  .pad-#{$pCount}-t {
+    padding-top: #{$pCount}px;
+  }
+  .pad-#{$pCount}-r {
+    padding-right: #{$pCount}px;
+  }
+  .pad-#{$pCount}-b {
+    padding-bottom: #{$pCount}px;
+  }
+  .pad-#{$pCount}-l {
+    padding-left: #{$pCount}px;
+  }
+  .pad-#{$pCount}-x {
+    @extend .pad-#{$pCount}-l;
+    @extend .pad-#{$pCount}-r;
+  }
+  .pad-#{$pCount}-y {
+    @extend .pad-#{$pCount}-t;
+    @extend .pad-#{$pCount}-b;
+  }
+  .pad-#{$pCount} {
+    @extend .pad-#{$pCount}-x;
+    @extend .pad-#{$pCount}-y;
+  }
+  $pCount: $pCount - $paddingStep;
+}
+.pad-0-last {
+  &:last-child {
+    padding: 0 !important;
+  }
+}
+.pad-0-first {
+  &:last-child {
+    padding: 0 !important;
+  }
+}

@@ -1,0 +1,62 @@
+// Colors Black
+@each $class, $color in ("black"          , $colorBlack),
+                        ("black-light"    , $colorBlackLight),
+                        ("black-lighten"  , $colorBlackLighten),
+                        ("black-lightest" , $colorBlackLightest),
+                        ("black-lightness", $colorBlackLightness) {
+    .fc-#{$class} {
+        color: $color;
+    }
+    .bg-#{$class} {
+        background-color: $color;
+    }
+}
+// Colors White
+@each $class, $color in ("white"         , $colorWhite),
+                        ("white-dark"    , $colorWhiteDark),
+                        ("white-darken"  , $colorWhiteDarken),
+                        ("white-darkest" , $colorWhiteDarkest),
+                        ("white-darkness", $colorWhiteDarkness) {
+    .fc-#{$class} {
+        color: $color;
+    }
+    .bg-#{$class} {
+        background-color: $color;
+    }
+}
+// Colors Based
+@each $class, $color in ("success", $colorSuccess),
+                        ("danger", $colorDanger),
+                        ("warning", $colorWarning),
+                        ("info", $colorInfo),
+                        ("first", $colorFirst),
+                        ("second", $colorSecond),
+                        ("third", $colorThird) {
+    .fc-#{$class} {
+        color: $color;
+    }
+    .bg-#{$class} {
+        background-color: $color;
+    }
+}
+
+// Font Size
+@each $size, $v in
+    (8, $fs8), (10, $fs10), (9, $fs9), (7, $fs7), (6, $fs6),
+    (3, $fs3), (5, $fs5),   (4, $fs4), (2, $fs2), (1, $fs1)
+{
+    .fs-#{$size} {
+        font-size: $v;
+    }
+}
+@each $fontWeight in $fontWeights {
+    .fw-#{$fontWeight} {
+        font-weight: $fontWeight;
+    }
+}
+// Family
+@each $family, $v in ("first", $ffFirst), ("second", $ffSecond) {
+    .ff-#{$family} {
+        font-family: $v;
+    }
+}

@@ -1,0 +1,81 @@
+@if $useSnackbarComponent == true {
+    .snackbar {
+        @extend .fixed;
+        z-index: 9999;
+        &.top {
+            top: 15px;
+            > .snackbar-item {
+                @extend .mar-10-b;
+            }
+        }
+        &.middle {
+            top: 50%;
+            transform: translate(0, -50%);
+            &.center {
+                transform: translate(-50%, -50%);
+            }
+        }
+        &.bottom {
+            bottom: 15px;
+        }
+        &.left {
+            left: 15px;
+            > .snackbar-item {
+                @extend .mar-auto-r;
+            }
+        }
+        &.center {
+            left: 50%;
+            transform: translate(-50%, 0);
+            > .snackbar-item {
+                @extend .mar-auto-x;
+            }
+        }
+        &.right {
+            right: 15px;
+            > .snackbar-item {
+                @extend .mar-auto-l;
+            }
+        }
+    }
+
+    .snackbar-item {
+        display: block;
+        padding: .5em 1em;
+        @include font("white", null, 400);
+        visibility: hidden;
+        transition: ease-out all;
+        opacity: 0;
+        width: max-content;
+        max-width: 400px;
+        box-shadow: 2px 2px 8px rgba(0, 0, 0, .2);
+        border-radius: 2px;
+        transform: translateY(-15px);
+        &.active {
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(0px);
+        }
+        &.leave {
+            visibility: visible;
+            opacity: 0;
+            transform: translateY(-15px);
+        }
+        &.success {
+            background-color: rgba($colorSuccess, .95);
+            border: 1px solid darken($colorSuccess, 6);
+        }
+        &.danger {
+            background-color: rgba($colorDanger, .95);
+            border: 1px solid darken($colorDanger, 6);
+        }
+        &.warning {
+            background-color: rgba($colorWarning, .95);
+            border: 1px solid darken($colorWarning, 6);
+        }
+        &.info {
+            background-color: rgba($colorInfo, .95);
+            border: 1px solid darken($colorInfo, 6);
+        }
+    }
+}

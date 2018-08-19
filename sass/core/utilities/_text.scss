@@ -1,0 +1,38 @@
+// Align
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+// Font Weight
+.text-light {
+  @include weight(300);
+}
+.text-regular {
+  @include weight(400);
+}
+.text-semibold {
+  @include weight(600);
+}
+.text-bold {
+  @include weight(700);
+}
+
+// Icon
+.text-icon {
+  &:before {
+    margin-right: 10px;
+  }
+}
+// Family
+.family-secondary {
+  Font-Family: 'Ubuntu', 'Roboto', Arial;
+}
+.family-base {
+  Font-Family: 'Roboto', 'Ubuntu', Arial;
+}
+

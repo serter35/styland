@@ -1,0 +1,7 @@
+{
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Styland Sass Framework",
+  "name": "styland",
+  "version": "1.2.1"
+}

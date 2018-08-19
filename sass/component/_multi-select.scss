@@ -1,0 +1,66 @@
+.sv-multi-select {
+    @extend .width-100;
+    @extend .flex-items;
+}
+.sv-multi-select-bar {
+    @extend .align-center-y;
+    @extend .pad-15-x;
+    i {
+        cursor: pointer;
+    }
+}
+.sv-multi-select-box {
+    @extend .gr;
+    @extend .bg-white;
+    border: 1px solid $colorWhiteDarken;
+    box-shadow: 3px 5px 15px -5px rgba(0,0,0, 0.3);
+    border-radius: 5px;
+}
+.sv-multi-select-list {
+    @extend .pad-15;
+    height: 15em;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+        width: 3px;
+    }
+    &::-webkit-scrollbar-track {
+        background-color: rgba($colorFirst, .1);
+        border-radius: 5px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: $colorFirst;
+        border-radius: 15%;
+    }
+    li {
+        cursor: pointer;
+        @extend .pad-10-t;
+        &:first-child {
+            padding-top: 0;
+        }
+    }
+}
+.sv-multi-select-search {
+    border-bottom: 1px solid $colorWhiteDarken;
+    @extend .pad-15-l;
+    @extend .pad-30-r;
+    @extend .relative;
+    input {
+        border: none;
+        @extend .width-100;
+        min-height: 2.5em;
+        &:focus {
+            + i {
+                @extend .fc-first;
+            }
+        }
+    }
+    i {
+        @extend .fa-icon;
+        @extend .right-0;
+        @extend .fa-search;
+        @extend .absolute;
+        @extend .transform-center-y;
+        @extend .mar-15-r;
+        transition: 250ms all linear;
+    }
+}

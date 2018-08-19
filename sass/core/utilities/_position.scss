@@ -1,0 +1,45 @@
+.absolute {
+  position: absolute;
+}
+.relative {
+  position: relative;
+}
+.fixed {
+  position: fixed;
+}
+.static {
+  position: static;
+}
+
+.left-0 {
+  left: 0;
+}
+.left-50 {
+  left: 50%;
+}
+.left-100 {
+  left: 100%;
+}
+.right-0 {
+  right: 0;
+}
+.top-0 {
+  top: 0;
+}
+.top-50 {
+  top: 50%;
+}
+.top-100 {
+  top: 100%;
+}
+.bottom-0 {
+  bottom: 0;
+}
+.pos-0-x {
+  @extend .left-0;
+  @extend .right-0;
+}
+.pos-0-y {
+  @extend .top-0;
+  @extend .bottom-0;
+}

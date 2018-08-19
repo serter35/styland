@@ -1,0 +1,9 @@
+@mixin flex-align($x: none, $y: none) {
+  @extend .flex-items;
+  @if ($x != none) {
+    @extend .align-#{$x}-x;
+  }
+  @if ($y != none) {
+    @extend .align-#{$y}-y;
+  }
+}

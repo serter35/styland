@@ -1,0 +1,158 @@
+@if $useContentPlaceholderComponent == true {
+    @keyframes placeholderShimmer {
+        0% {
+            background-position: -400px 0;
+        }
+        100% {
+            background-position: 450px 0;
+        }
+    }
+
+    .content-placeholder {
+        @extend .flex-items;
+        background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+        background-size: 800px 104px;
+        animation: 1s linear placeholderShimmer forwards infinite;
+        width: 100%;
+        p {
+            overflow: hidden;
+            width: 100%;
+            @extend .flex-items;
+        }
+        span {
+            &:first-of-type {
+                width: inherit;
+            }
+            &:last-of-type {
+                flex: 1;
+                background: white;
+            }
+        }
+        &.reverse {
+            @extend .direction-reverse-x;
+            .cont-pl-image {
+                @extend .direction-reverse-x;
+            }
+        }
+        &.block {
+            display: block;
+            > .cont-pl-image {
+                display: block;
+                p:first-of-type {
+                    display: block;
+                    span:first-of-type {
+                        width: 100%;
+                        padding-top: 35%;
+                    }
+                    span {
+                        height: 15px;
+                    }
+                }
+            }
+        }
+    }
+    .cont-pl-image {
+        @extend .flex-items;
+        flex-wrap: nowrap;
+        p:first-of-type {
+            @extend .direction-y;
+            @extend .flex-items;
+        }
+        p:last-of-type {
+            @extend .bg-white;
+            min-width: 15px;
+            width: 15px;
+        }
+        span {
+            display: block;
+        }
+        span:first-of-type {
+            padding-top: 100%;
+            width: 75px;
+        }
+        span:last-of-type {
+            @extend .bg-white;
+            @extend .gr;
+        }
+    }
+    .cont-pl-body {
+        @extend .width-100;
+        p:last-of-type {
+            height: 10px;
+            @extend .bg-white;
+        }
+        span {
+            height: $fs8;
+        }
+    }
+    .cont-pl-title {
+        span {
+            height: $fs3;
+        }
+        span:first-of-type {
+            width: 100%;
+        }
+        span:last-of-type {
+            @extend .bg-white;
+        }
+        p:last-of-type {
+            height: 15px;
+            @extend .bg-white;
+        }
+    }
+    /* Sizes */
+    .cont-pl-body-xs {
+        p:first-of-type {
+            span {
+                height: $fs10;
+            }
+        }
+    }
+    .cont-pl-body-sm {
+        span {
+            height: $fs9;
+        }
+    }
+    .cont-pl-body-md {
+        span {
+            height: $fs8;
+        }
+    }
+    .cont-pl-body-lg {
+        span {
+            height: $fs7;
+        }
+    }
+    .cont-pl-body-xl {
+        span {
+            height: $fs6;
+        }
+    }
+    .cont-pl-header-xs {
+        p:first-of-type {
+            span {
+                height: $fs5;
+            }
+        }
+    }
+    .cont-pl-header-sm {
+        span {
+            height: $fs4;
+        }
+    }
+    .cont-pl-header-md {
+        span {
+            height: $fs3;
+        }
+    }
+    .cont-pl-header-lg {
+        span {
+            height: $fs2;
+        }
+    }
+    .cont-pl-header-xl {
+        span {
+            height: $fs1;
+        }
+    }
+}

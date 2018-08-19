@@ -1,0 +1,31 @@
+.underline-effect {
+    @extend .pad-5-y;
+    @extend .relative;
+    &::before {
+        content: '';
+        @extend .absolute;
+        @extend .bottom-0;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: 200ms width ease-in;
+        @include box(0, 2px, $colorFirst);
+    }
+    &.start-l {
+        &::before {
+            left: 0;
+            transform: translateX(0);
+        }
+    }
+    &.start-r {
+        &::before {
+            left: auto;
+            right: 0;
+            transform: translateX(0);
+        }
+    }
+    &:hover, &.active {
+        &::before {
+            @extend .width-100;
+        }
+    }
+}
